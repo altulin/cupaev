@@ -1,13 +1,9 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import style from "./Header.module.scss";
 import clsx from "clsx";
-import Links from "./Links";
-import Nav from "./Nav";
-import Logo from "@/UI/logo/Logo";
 import Headroom from "react-headroom";
 
-const Header = () => {
-  const [isMenu, setMenu] = useState(false);
+const Header: FC = () => {
   const [isScrollHeader, setScrollHeader] = useState(false);
 
   const handleUnpin = () => {
@@ -36,13 +32,7 @@ const Header = () => {
             style.header__inner,
             isScrollHeader && style.header_scroll__inner,
           )}
-        >
-          <Logo parent={"header"} />
-
-          <Nav isMenu={isMenu} setMenu={setMenu}>
-            <Links setMenu={setMenu} />
-          </Nav>
-        </div>
+        ></div>
       </header>
     </Headroom>
   );
