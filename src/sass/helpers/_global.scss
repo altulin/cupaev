@@ -1,0 +1,162 @@
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  // min-height: 0;
+  // min-width: 0;
+}
+
+html {
+  box-sizing: border-box;
+
+  // font-size: 16px;
+  font-size: 0.83vw;
+
+  @include m.mw(v.$ldt) {
+    font-size: 1.1vw;
+  }
+
+  @include m.mw(v.$dt) {
+    font-size: 1.2vw;
+  }
+
+  @include m.mw(v.$tb) {
+    font-size: 2.66vw;
+  }
+
+  @include m.mw(v.$ph) {
+    font-size: 3.73vw;
+  }
+}
+
+body {
+  scroll-behavior: smooth;
+  @include m.font("ProximaNova");
+  color: v.$text-dark;
+  background-color: v.$bg;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.scroll {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #a70e13;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #f5ec5a;
+  }
+}
+
+img {
+  user-select: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+svg {
+  // max-width: 100%;
+  // max-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+fieldset,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input,
+button,
+select,
+a,
+textarea,
+label,
+div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+button,
+input,
+a {
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  border: none;
+  padding: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-clip: text;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: v.$gap;
+  padding-left: v.$gap;
+  // max-width: $width-dt + $gap * 2;
+  width: 80%;
+
+  @include m.mw(v.$ldt) {
+    width: 95%;
+  }
+
+  @include m.mw(v.$dt) {
+    width: auto;
+  }
+}
+
+* {
+  // outline: 1px solid #ff6347;
+}

@@ -1,0 +1,47 @@
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
+
+.press {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 1rem 2.25rem;
+  background-color: green;
+  cursor: pointer;
+  border-radius: 3.12rem;
+  transition: 0.3s;
+  border: var(--line) solid green;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: #fff;
+    color: var(--main-blue);
+
+    svg {
+      fill: var(--main-blue);
+    }
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+
+    svg {
+      fill: #fff;
+      transition: 0.3s;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

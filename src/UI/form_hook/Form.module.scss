@@ -1,0 +1,353 @@
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
+
+input[type="file"],
+input[type="radio"],
+input[type="checkbox"] {
+  @include m.vh();
+}
+
+.container {
+  --error: red;
+  --line: 0.03rem;
+
+  --color-placeholder: #b3c8d1;
+  --color-label: black;
+  --color-input: black;
+
+  --font-size-label: 1rem;
+  --font-size-input: 1rem;
+
+  --border-color: green;
+  --border-color-hover: tomato;
+  --border-input: var(--line) solid var(--border-color);
+  --border-radius: 0.62rem;
+
+  --padding-input: 0.75rem 1rem;
+  --background-input: #fff;
+
+  & + .container {
+    margin-top: 0.75rem;
+  }
+
+  &--radio {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    font-weight: 400;
+    font-size: var(--font-size-label);
+    color: var(--color-label);
+    margin-bottom: 0.75rem;
+  }
+
+  &--checkbox {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+}
+
+.input {
+  outline: 0;
+  padding: var(--padding-input);
+  border: var(--border-input);
+  border-radius: var(--border-radius);
+  font-weight: 400;
+  font-size: var(--font-size-input);
+  color: var(--color-input);
+  width: 100%;
+  transition: 0.3s;
+  background-color: var(--background-input);
+
+  &:hover {
+    border-color: var(--border-color-hover);
+  }
+
+  &::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  &--error {
+    border-color: var(--error);
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+}
+
+.select {
+  .select {
+    &__control {
+      height: 100%;
+      border: var(--border-input);
+      border-radius: var(--border-radius);
+      outline: 0;
+      background-color: #fff;
+      box-shadow: none;
+      overflow: hidden;
+      transition: 0.3s;
+
+      &:hover {
+        border-color: var(--border-color-hover);
+      }
+
+      &--error {
+        border-color: var(--error);
+      }
+    }
+
+    &__singleValue {
+      color: var(--color-input);
+      font-weight: 400;
+      font-size: var(--font-size-input);
+    }
+
+    &__valueContainer {
+      outline: 0;
+      padding: var(--padding-input);
+      border-radius: 0.62rem;
+    }
+
+    &__input {
+      color: var(--color-input);
+      font-weight: 400;
+      font-size: var(--font-size-input);
+    }
+
+    &__placeholder {
+      font-weight: 400;
+      font-size: var(--font-size-input);
+      line-height: 140%;
+      color: var(--color-placeholder);
+    }
+
+    &__indicatorsContainer {
+      width: 3.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--menu_open {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        stroke: var(--color-input);
+        transition: 0.1s;
+      }
+    }
+
+    &__indicatorSeparator {
+      display: none;
+    }
+
+    &__menuList {
+      &::-webkit-scrollbar {
+        width: 0.3rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: var(--white);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(19, 19, 19, 0.06);
+        border-radius: 0.5rem;
+      }
+    }
+
+    &__option {
+      font-weight: 400;
+      font-size: var(--font-size-input);
+      line-height: 140%;
+      color: #141414;
+      padding: 0.5rem 1.5rem;
+
+      &[aria-selected="true"] {
+        background-color: green;
+      }
+
+      &--focused {
+        background-color: red;
+      }
+    }
+  }
+}
+
+.textarea {
+  border: var(--border-input);
+  outline: 0;
+  border-radius: var(--border-radius);
+  font-weight: 400;
+  font-size: var(--font-size-input);
+  color: var(--dark);
+  padding: var(--padding-input);
+  resize: none;
+  width: 100%;
+
+  &:hover {
+    border-color: var(--border-color-hover);
+  }
+
+  &::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  &--error {
+    border-color: var(--error);
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--border-input);
+    border-radius: 0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+
+    &--error {
+      border-color: var(--error);
+    }
+
+    svg {
+      width: 80%;
+      height: 80%;
+      color: var(--border);
+    }
+  }
+}
+
+.file {
+  border: var(--border-input);
+  border-radius: var(--border-radius);
+  padding: var(--padding-input);
+  transition: 0.3s;
+  background-color: var(--background-input);
+
+  &__placeholder {
+    font-size: var(--font-size-input);
+    color: var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    &--empty {
+      color: var(--color-placeholder);
+    }
+  }
+
+  &:hover {
+    border-color: var(--border-color-hover);
+  }
+
+  &--error {
+    border-color: var(--error);
+  }
+}
+
+.datepicker {
+  outline: 0;
+  padding: var(--padding-input) !important;
+  border: var(--border-input);
+  border-radius: var(--border-radius);
+  font-weight: 400;
+  font-size: var(--font-size-input);
+  color: var(--color-input);
+  width: 100%;
+  transition: 0.3s;
+
+  &:hover {
+    border-color: var(--border-color-hover);
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  &__icon {
+    position: absolute;
+    @include m.centered("y");
+    right: 0;
+    width: 0.875rem;
+    height: 0.56rem;
+  }
+}
+
+.error {
+  &__text {
+    color: var(--error);
+    font-size: 0.75rem;
+    padding-left: 1.25rem;
+    transition: 0.3s;
+    opacity: 0;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}
+
+.button {
+  position: absolute;
+  @include m.centered("y");
+  right: 1rem;
+  background-color: transparent;
+
+  &__icon {
+    stroke: var(--border-color);
+    width: 1.5rem;
+  }
+}
+
+.radio_el {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  column-gap: 0.5rem;
+
+  .label__text {
+    margin-bottom: 0;
+  }
+
+  &__mark {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    border-radius: 0.25rem;
+    border: var(--border-input);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 80%;
+      height: 80%;
+      color: var(--border);
+    }
+  }
+}

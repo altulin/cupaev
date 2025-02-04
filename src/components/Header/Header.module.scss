@@ -1,0 +1,84 @@
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
+
+.header {
+  --duration: 0.3s;
+  background-color: #fff;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3.8rem;
+    padding-bottom: 3.8rem;
+    padding-left: torem(100);
+    padding-right: torem(100);
+    transition: var(--duration) ease-in-out;
+    background-color: rgba(black, 0.1);
+
+    @include m.mw(v.$ldt) {
+      padding-left: 1rem;
+      padding-right: 2rem;
+    }
+
+    @include m.mw(v.$tb) {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      padding-right: 1rem;
+    }
+  }
+
+  &__burger {
+  }
+}
+
+.header_scroll {
+  &__inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.menu {
+  &__wrap {
+    top: 0;
+    height: 100vh !important;
+    left: 0;
+    background-color: #fff;
+  }
+
+  &__shape {
+    height: 100%;
+  }
+
+  &__overlay {
+    left: 0;
+    top: 0;
+    height: 100vh !important;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 2rem;
+  }
+
+  &__cross {
+    top: 2rem !important;
+    right: 2rem !important;
+    svg {
+      stroke: red;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+
+  @include m.mw(v.$tb) {
+    flex-direction: column;
+  }
+}

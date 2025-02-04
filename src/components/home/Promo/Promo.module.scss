@@ -1,0 +1,8 @@
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
+
+.promo {
+  max-width: 40rem !important;
+  &__inner {
+  }
+}
