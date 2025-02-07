@@ -1,0 +1,13 @@
+@use "@/sass/helpers/variables" as v;
+@use "@/sass/helpers/mixins.scss" as m;
+
+.title {
+  &__text {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #177165;
+    @include m.font("Playfair Display Variable");
+    text-transform: uppercase;
+  }
+}

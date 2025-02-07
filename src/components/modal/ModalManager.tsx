@@ -4,6 +4,8 @@ import ModalError from "./error/ModalError";
 import useGetCurrentModal from "@/hooks/getCurrentModal";
 import { FC } from "react";
 import { EKeys, TModalState } from "@/store/modal/initialState";
+import ModalWarning from "./warning/ModalWarning";
+import ModalChange from "./change/ModalChange";
 
 interface IModalElements {
   modalState: TModalState | null;
@@ -18,6 +20,12 @@ const ModalElements: FC<IModalElements> = ({ modalState }) => {
 
     case EKeys.ERROR:
       return <ModalError />;
+
+    case EKeys.WARNING:
+      return <ModalWarning />;
+
+    case EKeys.CHANGE:
+      return <ModalChange />;
 
     default:
       return null;

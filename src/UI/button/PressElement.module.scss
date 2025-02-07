@@ -4,25 +4,33 @@
 .press {
   display: flex;
   justify-content: center;
-  font-weight: 600;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  color: #fff;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #177165;
   padding: 1rem 2.25rem;
-  background-color: green;
   cursor: pointer;
-  border-radius: 3.12rem;
+  background-color: #fff;
   transition: 0.3s;
-  border: var(--line) solid green;
   flex-shrink: 0;
+  position: relative;
+
+  &--isLoading {
+    pointer-events: none;
+    display: none;
+  }
 
   &:hover {
-    background-color: #fff;
-    color: var(--main-blue);
+    background-color: #177165;
+    color: #fff;
 
     svg {
       fill: var(--main-blue);
     }
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    pointer-events: none;
   }
 }
 

@@ -10,27 +10,28 @@ const Label: FC<ITextInput> = ({ ...props }) => {
   if (!input_props.name) return;
 
   return (
-    <label
+    <div
       className={clsx(
         style.label,
         modifier && style[`label--${modifier}`],
         className,
       )}
-      htmlFor={id}
+      // htmlFor={id}
     >
       {label_text && (
-        <span
+        <label
+          htmlFor={id}
           className={clsx(
             style.label__text,
             modifier && style[`label__text--${modifier}`],
           )}
         >
           {label_text}
-        </span>
+        </label>
       )}
 
       <div className={clsx(style.input__wrapper)}>{children}</div>
-    </label>
+    </div>
   );
 };
 export default Label;

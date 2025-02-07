@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# Тестовое задание
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##### node v20.12.2
 
-Currently, two official plugins are available:
+1. **Запуск проекта**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   - склонируйте проект
+   - установите зависимости `npm i`
+   - запустите проект `npm run start` (запустится сам проект и одновременно с ним `json-server`)
+   - если вдруг возникнет ошибка запустите проект `npm run dev` и сервер `npm run server` в разных терминалах.
+   - **Важно!** Изображения с сайта [picsum](https://picsum.photos/) не доступны без VPN подключения. При его отсутствии загрузится дефолтное изображение.
 
-## Expanding the ESLint configuration
+2. **Библиотеки используемые на проекте**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   - Vite, React.js, Typescript, SASS
+   - fake REST API [JSON Server](https://github.com/typicode/json-server/tree/v0)
+   - Запрос данных, обработка ошибок, состояние загрузки - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
+   - Пагинация (десктоп) - [react-paginate](https://github.com/AdeleD/react-paginate)
+   - Слайдер (мобилка) - [swiper](https://swiperjs.com/)
+   - Формы - [react-hook-form](https://react-hook-form.com/)
+   - Валидация полей форм - [yup](https://github.com/jquense/yup)

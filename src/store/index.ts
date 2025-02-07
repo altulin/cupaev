@@ -12,7 +12,9 @@ const store = configureStore({
   devTools: process.env.NODE_ENV === "development",
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([api.middleware, rtkQueryErrorLogger]),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat([api.middleware, rtkQueryErrorLogger]),
 });
 
 export default store;

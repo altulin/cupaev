@@ -10,7 +10,7 @@ import { useController } from "react-hook-form";
 registerLocale("ru", ru);
 
 const MyDatePicker: FC<ITextInput> = ({ ...props }) => {
-  const { name, placeholder, id } = props;
+  const { name, placeholder, id, modifier } = props;
 
   const {
     field: { onChange, value },
@@ -26,8 +26,12 @@ const MyDatePicker: FC<ITextInput> = ({ ...props }) => {
       placeholderText={placeholder}
       className={clsx(style.datepicker)}
       wrapperClassName={clsx(style.datepicker__wrapper)}
-      dateFormat={"dd MMMM yy"}
+      dateFormat={modifier === "time" ? "HH:mm" : "dd.MM.yyyy"}
       showIcon={true}
+      showTimeSelect={modifier === "time"}
+      showTimeSelectOnly={modifier === "time"}
+      timeIntervals={60}
+      showTimeCaption={false}
       icon={
         <svg
           className={clsx(style.datepicker__icon)}

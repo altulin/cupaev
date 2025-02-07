@@ -13,12 +13,10 @@ export const rtkQueryErrorLogger: Middleware =
 
       if (!code) return next(action);
 
-      if (code === 401) {
-        // return next(action);
-      }
-
       if (Object.keys(dataErr).includes(code.toString())) {
         api.dispatch(setErrorModal(dataErr[code as keyof typeof dataErr]));
+      } else {
+        api.dispatch(setErrorModal("Возникла ошибка. Попробуйте позже"));
       }
     }
 

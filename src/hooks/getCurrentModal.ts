@@ -18,6 +18,14 @@ const useGetCurrentModal = (modalState: TModalState | null) => {
       modal = key;
       break;
 
+    case "warning":
+      modal = key;
+      break;
+
+    case "change":
+      modal = key;
+      break;
+
     default:
       modal = `${key}-${
         (modalState as { [key: string]: { step: number } })[key]["step"]

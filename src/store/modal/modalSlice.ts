@@ -1,16 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TModalState, initialState } from "./initialState";
+import { initialState } from "./initialState";
+import { ICard } from "@/components/home/promo/types";
 
 const modalSlice = createSlice({
   name: "modal",
   initialState,
 
   reducers: {
-    stepTo(state, action: PayloadAction<TModalState>) {
-      state.modalState = action.payload;
-    },
-
-    clearAllStep(state) {
+    clearModal(state) {
       state.modalState = null;
     },
 
@@ -21,9 +18,28 @@ const modalSlice = createSlice({
     setSuccessModal(state, action: PayloadAction<string>) {
       state.modalState = { success: { text: action.payload } };
     },
+
+    setWarningModal(
+      state,
+      action: PayloadAction<{
+        text: string;
+        id: number;
+      }>,
+    ) {
+      state.modalState = { warning: action.payload };
+    },
+
+    setChangeModal(state, action: PayloadAction<ICard>) {
+      state.modalState = { change: action.payload };
+    },
   },
 });
 
-export const { stepTo, clearAllStep, setErrorModal, setSuccessModal } =
-  modalSlice.actions;
+export const {
+  clearModal,
+  setErrorModal,
+  setSuccessModal,
+  setWarningModal,
+  setChangeModal,
+} = modalSlice.actions;
 export default modalSlice.reducer;

@@ -2,7 +2,7 @@ import style from "./Modal.module.scss";
 import clsx from "clsx";
 import ModalPortal from "../ModalPortal";
 import Icon from "@/images/svg/menuClose.svg?react";
-import { clearAllStep } from "@/store/modal/modalSlice";
+import { clearModal } from "@/store/modal/modalSlice";
 import { useClickAway } from "@uidotdev/usehooks";
 import { FC, ReactNode, RefObject, useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/hooks/hook";
@@ -14,11 +14,11 @@ interface IModal {
 const Modal: FC<IModal> = ({ children }) => {
   const dispatch = useAppDispatch();
 
-  const clearModal = useCallback(
+  const clearMod = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (e: any) => {
       if (e.key === "Escape") {
-        dispatch(clearAllStep());
+        dispatch(clearModal());
       }
     },
 
@@ -27,32 +27,34 @@ const Modal: FC<IModal> = ({ children }) => {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    document.body.addEventListener("keydown", clearModal);
+    document.body.addEventListener("keydown", clearMod);
 
     return () => {
       document.body.style.overflow = "visible";
-      document.body.removeEventListener("keydown", clearModal);
+      document.body.removeEventListener("keydown", clearMod);
     };
-  }, [clearModal]);
+  }, [clearMod]);
 
   const ref = useClickAway(() => {
-    dispatch(clearAllStep());
+    dispatch(clearModal());
   });
 
   return (
     <ModalPortal>
       <div className={clsx(style.modal)}>
-        <div
-          ref={ref as RefObject<HTMLDivElement>}
-          className={clsx(style.modal__inner)}
-        >
-          <button
-            className={clsx(style.modal__close)}
-            onClick={() => dispatch(clearAllStep())}
+        <div className={clsx(style.modal__overlay, "scroll")}>
+          <div
+            ref={ref as RefObject<HTMLDivElement>}
+            className={clsx(style.modal__inner)}
           >
-            <Icon />
-          </button>
-          {children}
+            <button
+              className={clsx(style.modal__close)}
+              onClick={() => dispatch(clearModal())}
+            >
+              <Icon />
+            </button>
+            {children}
+          </div>
         </div>
       </div>
     </ModalPortal>

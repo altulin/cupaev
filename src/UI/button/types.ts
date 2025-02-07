@@ -7,9 +7,14 @@ export interface IPressElement {
   icon?: ReactNode;
   icon_pos?: "left" | "right";
   modifier?: string;
+  label_text?: boolean;
+  children?: ReactNode;
 }
 
-export let TPressComponent: Pick<IPressElement, "label" | "icon" | "icon_pos">;
+export let TPressComponent: Pick<
+  IPressElement,
+  "label" | "icon" | "icon_pos" | "children"
+>;
 
 export interface IPressBtn
   extends IPressElement,

@@ -13,7 +13,7 @@ export const fieldTextArea = (args: ITextInput) => {
       },
       {
         type: "max",
-        params: [50, "Не более 50 символов"],
+        params: [100, "Не более 100 символов"],
       },
     ],
     component: TextArea,

@@ -12,23 +12,24 @@ input[type="checkbox"] {
   --line: 0.03rem;
 
   --color-placeholder: #b3c8d1;
-  --color-label: black;
-  --color-input: black;
+  --color-label: #777;
+  --color-input: #177165;
 
   --font-size-label: 1rem;
   --font-size-input: 1rem;
 
-  --border-color: green;
-  --border-color-hover: tomato;
+  --border-color: #177165;
+  --border-color-hover: #177165;
   --border-input: var(--line) solid var(--border-color);
   --border-radius: 0.62rem;
 
   --padding-input: 0.75rem 1rem;
   --background-input: #fff;
 
-  & + .container {
-    margin-top: 0.75rem;
-  }
+  // & + .container {
+  //   margin-top: 0.75rem;
+  // }
+  position: relative;
 
   &--radio {
     display: flex;
@@ -192,7 +193,7 @@ input[type="checkbox"] {
   border-radius: var(--border-radius);
   font-weight: 400;
   font-size: var(--font-size-input);
-  color: var(--dark);
+  color: var(--color-input);
   padding: var(--padding-input);
   resize: none;
   width: 100%;
@@ -298,6 +299,7 @@ input[type="checkbox"] {
 }
 
 .error {
+  position: absolute;
   &__text {
     color: var(--error);
     font-size: 0.75rem;
